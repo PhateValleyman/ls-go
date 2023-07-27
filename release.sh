@@ -14,7 +14,7 @@ fi
 
 TAG=0.2.1_by_PhateValleyman
 
-git tag -a v$TAG -m "release v$TAG"
+#git tag -a v$TAG -m "release v$TAG"
 
 git push origin master --tags
 
