@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 set -ex
 
 if ! command -v github-release >/dev/null; then
@@ -12,7 +12,7 @@ if [ -z "$GITHUB_TOKEN" ]; then
   exit 1
 fi
 
-TAG=0.2.1
+TAG=0.2.1_by_PhateValleyman
 
 git tag -a v$TAG -m "release v$TAG"
 
@@ -21,36 +21,15 @@ git push origin master --tags
 ./compile
 
 github-release release \
-  --user acarl005 \
+  --user PhateValleyman \
   --repo ls-go \
   --tag v$TAG \
-  --name v$TAG
+  --name ls-go
 
 
 github-release upload \
-  --user acarl005 \
+  --user PhateValleyman \
   --repo ls-go \
   --tag v$TAG \
-  --name ls-go-darwin-amd64 \
-  --file ls-go-darwin-amd64
-
-github-release upload \
-  --user acarl005 \
-  --repo ls-go \
-  --tag v$TAG \
-  --name ls-go-linux-amd64 \
-  --file ls-go-linux-amd64
-
-github-release upload \
-  --user acarl005 \
-  --repo ls-go \
-  --tag v$TAG \
-  --name ls-go-linux-arm64 \
-  --file ls-go-linux-arm64
-
-github-release upload \
-  --user acarl005 \
-  --repo ls-go \
-  --tag v$TAG \
-  --name ls-go-linux-386 \
-  --file ls-go-linux-386
+  --name ls-go \
+  --file ls-go
